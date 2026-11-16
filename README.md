@@ -11,7 +11,7 @@ verifier --(approved or iter == max)--> END        (both agents loop agent <-> t
 ```
 
 - **verifier**: an agent that reviews the original and current code. It tries fixturing orientations with `check_part(code, up=...)`, so a part that only works rotated can still pass. It judges design intent and calls `SubmitVerdict(approved, up, issues, waivers)`.
-  - An approval only counts if the rule checks pass in the chosen orientation, except for rules it explicitly waives with a reason (e.g. a T-slot cutter).
+  - An approval only counts if the rule checks pass in the chosen orientation, except for rules it explicitly waives with a reason.
   - This guard stops a hallucinated pass.
 - **designer**: an agent that edits the part from the verifier's issues and orientation.
 - Both agents use OpenAI (default `gpt-5-mini`) and share these tools:
